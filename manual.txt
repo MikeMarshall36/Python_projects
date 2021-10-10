@@ -1,0 +1,15 @@
+
+mkdir - создаёт директорию в рабочей папке (mkdir 'Имя_директории')
+remdir - удаляет директорию по имени. Только пустые директории (remdir 'Имя_папки')
+pwd - Выводит текущую рабочую директорию
+ls - Выводит все файлы и папки в текущей директории
+touch -  Создаёт текстотвый файл по имени и запускает блокнот для редактирования файла (touch 'Имя файла')
+rm - удаляет файл по имени (rm 'Имя файла')
+moveto - переносит файлы или папки в указанную директорию (moveto file_name.txt direcory_name или moveto directory1_name directory2_name)
+chdir - изменяет рабочую директорию (chdir directory_name). Чтобы вернуться нужно ввести chdir back.
+copy_file - капирует файл внутри текущей директории (copyFile originfile.txt copyfile.txt)
+copyto - капирует файл в другую (выбранную) директорию (copyto file_name.txt directory_name или copyto directory_name directory_name)
+open - выводит содержимое текстовых файлов (open file_name)
+edit - Позволяет редактировать текстовый файл по имени (edit file_name)
+
+Чтобы завершить работу в менеджере введите exit 
