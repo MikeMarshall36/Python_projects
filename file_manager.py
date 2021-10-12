@@ -5,6 +5,8 @@ req_main = ''
 req = ''
 sec_req = ''
 
+opeSys = os.name
+
 with open('manual.txt', 'r', encoding='utf-8') as file:
     print(*file)
 
@@ -54,12 +56,17 @@ def F_list(dir_name):
     print('\n')
 
 def touch(file_name):
-    if not os.path.isfile(file_name):
-        text_file = open(file_name + '.txt', 'w+')
-        text_file.write('')
-        file_name += '.txt'
-        os.startfile(file_name)
-        print('Текстовый файл создан!')
+    global opeSys
+    if opeSys == 'posix':
+        os.system(open(file_name + '.txt'))
+
+    elif opeSys != 'posix':
+        if not os.path.isfile(file_name):
+            text_file = open(file_name + '.txt', 'w+')
+            text_file.write('')
+            file_name += '.txt'
+            os.startfile(file_name)
+    print('Текстовый файл создан!')
 
 def open_file(file_name):
     with open(file_name, 'r', encoding='utf-8') as file:
