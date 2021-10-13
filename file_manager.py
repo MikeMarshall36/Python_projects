@@ -110,6 +110,9 @@ def edit_file(file_name):
     print(f'Файл {file_name} был изменён')
 user_input = str(os.getcwd()) + ': '
 
+def man():
+    open_file('manual.txt')
+
 requ = input('Введите запрос: ')
 requ.lower()
 while len(requ) != '    ':
@@ -157,6 +160,9 @@ while len(requ) != '    ':
             if req_main == 'copyFile':
                 copy_file(req, sec_req)
 
+            if req_main == 'copyto':
+                copy_folder(req, sec_req)
+                
             if req_main == 'copyto':
                 copy_folder(req, sec_req)
 
