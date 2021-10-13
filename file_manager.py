@@ -44,7 +44,8 @@ def dir_rem(dir_name):
 
 def mkdir_py(dir_name):
     if not os.path.isdir(dir_name):
-        os.mkdir(dir_name,777)
+        os.umask(0)
+        os.mkdir(dir_name,0o777)
         print(f'Директория с именем {dir_name} создана', '\n')
     else:
         print('Директория с таким именем уже существует')
