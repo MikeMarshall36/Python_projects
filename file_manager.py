@@ -105,8 +105,12 @@ def copy_folder(file_name, dir_name):
         print(f'Файл {file_name} был скопирован в директорию {dir_name}')
 
 def edit_file(file_name):
-    file_name += '.txt'
-    os.startfile(file_name)
+    global opeSys
+    if opeSys == 'posix':
+        os.system(open(file_name + '.txt'))
+    elif opeSys != 'posix':
+        file_name += '.txt'
+        os.startfile(file_name)
     print(f'Файл {file_name} был изменён')
 user_input = str(os.getcwd()) + ': '
 
@@ -165,6 +169,9 @@ while len(requ) != '    ':
                 
             if req_main == 'copyto':
                 copy_folder(req, sec_req)
+             
+            if req_main == 'man':
+                man()
 
             user_input = str(os.getcwd()) + ': '
 
