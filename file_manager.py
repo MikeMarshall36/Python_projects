@@ -4,7 +4,6 @@ import shutil
 req_main = ''
 req = ''
 sec_req = ''
-
 opeSys = os.name
 
 with open('manual.txt', 'r', encoding='utf-8') as file:
