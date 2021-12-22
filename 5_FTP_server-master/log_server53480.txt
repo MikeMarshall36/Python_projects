@@ -1,0 +1,6 @@
+Server activate
+your port server - 53480
+2021-12-22 17:28:44.857713 user AgDeSs enter the conf from ('127.0.0.1', 64185)
+2021-12-22 17:28:57.014209 AgDeSs: new dirC:\Users\kolan\Downloads\5_FTP_server-master\5_FTP_server-master\AgDeSs\test
+2021-12-22 17:29:02.627375 AgDeSs: new dirC:\Users\kolan\Downloads\5_FTP_server-master\5_FTP_server-master\AgDeSs
+2021-12-22 17:29:07.595215 AgDeSs: new dirC:\Users\kolan\Downloads\5_FTP_server-master\5_FTP_server-master\AgDeSs\test2
