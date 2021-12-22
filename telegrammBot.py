@@ -8,7 +8,7 @@ log = ''
 file_wipe('pins.txt')
 verification = False
 
-bot = telebot.TeleBot('5097548852:AAFT9ljrEOIhIetPWpASCk3cIJ6DLh2qQss')#Токен бота
+bot = telebot.TeleBot('')#Токен бота
 
 @bot.message_handler(content_types=['text'])
 def start(message):
