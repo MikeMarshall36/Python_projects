@@ -1,7 +1,7 @@
 import telebot
 from telebot import types
 import random
-from pasing import *
+from parsing import *
 pin = 0
 user = ''
 log = ''
