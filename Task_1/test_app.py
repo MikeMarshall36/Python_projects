@@ -1,5 +1,7 @@
 import pytest
-from main import get_keywords, check_query
+from main import check_query
+
+""" Тесты для проверки правил составления запроса """
 
 
 @pytest.fixture
@@ -7,15 +9,17 @@ def test_query_checker():
     return check_query
 
 
-query_data = [  # Данные для проверки
-
+# Данные для проверки
+query_data = [  # ('текст запроса типа str', ожидаемый результат в виде True или False)
     ('"data base" and malware ("detect*" or fix)', True),
     ('malware and ("detect*" or "data base")', True),
-    ('malware and fix or ("detect*" or "data base")', True),
-
-    ('malware and spyware and not ("detect*" or "data base")', False),
-    ('malware and ("detect* or "data base")', False),
     ('malware and ("detect*" or data base)', False),
+    ('malware and not ("detect*" or "data base")', True),
+    ('malware and spyware not software', True),
+    ('malware and ("detect*" or and "data base)', False),
+    ('malware and ("detect*" or "not" "relational data base" and "data base control")', True),
+    ('malware and ("detect*" not or "relational data base" and "data base control")', False),
+    ('software', False)
 ]
 
 
