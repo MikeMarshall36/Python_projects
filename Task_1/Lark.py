@@ -58,7 +58,7 @@ def get_keywords(query: str) -> list:  # Функция для поиска кл
             if word.strip().startswith('key'):  # Ищем строки начинающиеся на key
                 result_list.append(word.strip().split('\t')[-1])  # Берем значения для ключевых элементов
         result_list = Series(result_list)  # Конвертируем список в серию, чтобы вытащить уникальные значения
-        result_list.unique()  # В общем вытаскиваем уникальные значения
+        result_list = result_list.unique()  # В общем вытаскиваем уникальные значения
     except UnexpectedInput:
         return query.split(' ')  # В случае если запрос не прошел проверку правил - выводим список с исходным запросом
     return list(result_list)
