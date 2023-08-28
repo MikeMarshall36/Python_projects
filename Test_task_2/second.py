@@ -10,7 +10,7 @@ def my_code(data_set: dict, start: int):  # Сама функция
     for item in data_set.get(start):  # Проходимся по словарю для получения данных по ключу
         if item not in res:  # Проверяем, есть ли значение в списке и если нет - то добавляем
             res.append(item)
-            if type(data.get(item)) == list:  # Проверка типа данных
+            if type(data_set.get(item)) == list:  # Проверка типа данных
                 for sub_item in data_set.get(item):  # Проходимся по списку смежных вершин
                     # Проверяем элементы словаря стартовой точки на наличие смеженных вершин
                     if sub_item not in res:  # Также проверяем дублирование значений
