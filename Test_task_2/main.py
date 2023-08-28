@@ -1,24 +1,27 @@
 """
 Первое задание.
 
-Нужно было вывести данные в соответствии со вложенностью их в
+Нужно было вывести данные в соответствии с их вложенностью в словаре используя функцию
 """
 
 
-def my_func(data_set: dict):  # Первая функция
-    keys = data_set.keys()
-    for key in keys:
-        print(f'{key}')
-        try:
-            my_func(data_set.get(key))
-        except AttributeError:
-            print(f'\t{data_set.get(key)}\n')
+def my_code(data_set: dict, iter=0):  # Сама функция
+    keys = data_set.keys()  # Получаем ключи словаря
+    for key in keys:  # Проходимся по ключам
+        print(('\t' * iter) + key+':')  # Выводим ключи
+
+        try:  # Проверка на ошибку атрибута (у строк нет данных, которые можно получить по ключу))
+            iter += 1  # Счетчик итераций (Так как функция рекурсивная)
+            my_code(data_set.get(key), iter)  # Передаём новые значения в имеющуюся функцию
+        except AttributeError:  # Если мы наткнулись на значение, которое не является словарем - выводим его
+            print(('\t' * iter)+data_set.get(key))  # Выводим с учетом количества итераций рекурсии (табуляция)
+        iter = 0
 
 
 data_set_1 = {
     'first': 'first_value',
     'second': 'second_value'
-}
+}  # Наборы данных для проверки
 
 data_set_2 = {
     '1': {
@@ -29,7 +32,5 @@ data_set_2 = {
     }
 }
 
-my_func(data_set_1)
-my_func(data_set_2)
-
-# Табуляция у меня не вышла...
+my_code(data_set_1)  # вызов функции
+my_code(data_set_2)
