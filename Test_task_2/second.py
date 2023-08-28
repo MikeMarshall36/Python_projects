@@ -1,26 +1,31 @@
-def my_func(data_set: dict, start: int):
-    res = [start]
-    for item in data_set.get(start):
-        if item not in res:
+"""
+Задание второе
+
+Нужно вывести достижимые вершины для заданной точки
+"""
+
+
+def my_code(data_set: dict, start: int):  # Сама функция
+    res = [start]  # Создаем список для хранения результатов
+    for item in data_set.get(start):  # Проходимся по словарю для получения данных по ключу
+        if item not in res:  # Проверяем, есть ли значение в списке и если нет - то добавляем
             res.append(item)
-            try:
+            try:  # Проверка на ошибку типа данных
                 for sub_item in data_set.get(item):
-                    if sub_item not in res:
+                    # Проверяем элементы словаря стартовой точки на наличие смеженных вершин
+                    if sub_item not in res:  # Также проверяем дублирование значений
                         res.append(sub_item)
             except TypeError:
-                break
-    count = 0
-    while count < len(res):
-        for i in range(len(res)):
-            result = res[i]
-            count += 1
-            yield result
+                break  # Завершаем работу проверки
+    for item in range(len(res)):  # Пока разбираюсь с тем, что такое функция - генератор (пока криво, но надо пробовать)
+        result = res[item]  # Получаем значения из списка результатов
+        yield result  # Возвращаем значение (и замораживаем выполнение функции)
 
 
 data = {
     1: [2, 3],
     2: [4]
-}
+}  # Наборы данных для проверки
 
 data2 = {
     1: [2, 3],
@@ -28,5 +33,5 @@ data2 = {
     4: [1]
 }
 
-for i in my_func(data, 1):
+for i in my_code(data, 1):  # Вызов функции (при необходимости просто заменить переменную с набором данных)
     print(i)
